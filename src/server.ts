@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 import userRoutes from './handler/user';
+import productRoutes from './handler/product';
 
 console.log('Configuring server...');
 
@@ -23,7 +24,7 @@ app.get( "/", ( req, res ) => {
 } );
 
 // Handle the routes
-// petRoutes(app);
+productRoutes(app);
 userRoutes(app);
 
 // Start the Server
