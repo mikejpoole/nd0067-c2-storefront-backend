@@ -8,8 +8,9 @@ Run `npm install`.
 This project requires a `.env` file in the root with these variables:
     
     | Variable              | Value     |
-    | ---                   | ---       |
+    | :-------------------: | :-------: |
     | APP_HOST              | localhost |
+    | APP_PATH              | /api/v1   |    
     | APP_PORT              | 8081      |
     | PG_HOST               |           |
     | PG_DATABASE           |           |
