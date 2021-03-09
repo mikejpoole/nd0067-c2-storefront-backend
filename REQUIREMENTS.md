@@ -40,7 +40,7 @@ The models and database have the following properties/fields:
 #### orders
 - id (PK) = BIGSERIAL
 - user_id (FK)
-- complete = BOOLEAN
+- order_complete = BOOLEAN
 
 #### orderline
 This table joins many orders with many products.
