@@ -1,4 +1,5 @@
 import express from 'express';
+import orderRouter from './order';
 import productRouter from './product';
 import userRouter from './user';
 
@@ -12,6 +13,6 @@ router.get( "/", ( req, res ) => {
 
 router.use("/users", userRouter);
 router.use("/products", productRouter);
-// router.use("/orders", orderRouter);
+router.use("/orders", orderRouter);
 
 export default router;

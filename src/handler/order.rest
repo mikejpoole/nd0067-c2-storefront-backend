@@ -1,0 +1,5 @@
+
+### DISPLAY ORDERS: ###
+
+GET http://localhost:8081/api/v1/orders/1 HTTP/1.1
+
