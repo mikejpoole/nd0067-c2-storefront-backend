@@ -46,6 +46,6 @@ const productRouter = express.Router();
 productRouter.get('/', index);
 productRouter.get('/:id', show);
 productRouter.post('/', verifyAuthToken, create);
-//   productRouter.delete('/', verifyAuthToken, destroy);
+//   productRouter.delete('/:id', verifyAuthToken, destroy);         // DO NOT INCLUDE THIS IN PRODUCTION!!!
 
 export default productRouter;

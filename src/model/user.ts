@@ -13,8 +13,6 @@ export type User = {
 };
 
 export class UserStore {
-
-    // ONLY USE INDEX FOR TESTING. NEVER EXPOSE THIS!!!
     async index(): Promise<User[]> {
         try {
             const conn = await connection.connect();
@@ -74,12 +72,25 @@ export class UserStore {
                     console.log('Password is correct');
                     return user;
                 } else {
-                     console.log(`Credentials for ${user.firstname} do not match.`);
+                    console.log(`Credentials for ${user.firstname} do not match.`);
                 }
             } catch (err) {
                 throw new Error(`Unable to authenticate user (${creds.firstname}): ${err}`);
             }
         }
         return null;
+    }
+
+    async delete(id: number): Promise<User> {
+        try {
+            const sql = 'DELETE FROM users WHERE id = ($1)';
+            const conn = await connection.connect();
+            const result = await conn.query(sql, [id]);
+            const user = result.rows[0];
+            conn.release();
+            return user;
+        } catch (err) {
+            throw new Error(`Could not delete user ${id}. Error: ${err}`);
+        }
     }
 }

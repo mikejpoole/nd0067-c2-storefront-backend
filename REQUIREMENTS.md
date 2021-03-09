@@ -17,7 +17,7 @@ The following endpoints are in that base url:
 - Index [token required] = `/users` GET
 - Show [token required] = `/users/:id` GET
 - Create [token required] = `/users` POST
-- Create first user = `/users/getstarted` POST
+- Create first user = `/users/genesis` POST
 
 #### orders
 - Current Order by user (args: user id)[token required] = `/orders/:user_id` GET

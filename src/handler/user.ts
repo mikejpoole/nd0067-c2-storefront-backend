@@ -6,8 +6,7 @@ import { User, UserStore } from '../model/user';
 
 const userStore = new UserStore();
 
-const index = async (req: Request, res: Response) => {
-    console.log('Trying to get users...');
+const list = async (req: Request, res: Response) => {
     try {
         const users = await userStore.index();
         res.json(users);
@@ -54,9 +53,19 @@ const authenticate = async (req: Request, res: Response) => {
     }
 };
 
+const destroy = async (req: Request, res: Response) => {
+    const body: User = req.body;
+    const deleted = await userStore.delete(body.id);
+    res.json(deleted);
+};
+
 const userRouter = express.Router();
-userRouter.get('/', verifyAuthToken, index);
-userRouter.post('/create', verifyAuthToken, create);
+
+userRouter.get('/', verifyAuthToken, list);
+userRouter.post('/', verifyAuthToken, create);
 userRouter.get('/authenticate', authenticate);
+
+userRouter.post('/genesis', create);        // Only enable for the first user then comment this out
+// userRouter.delete('/:id', destroy);         // DO NOT INCLUDE THIS IN PRODUCTION!!!
 
 export default userRouter;

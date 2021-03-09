@@ -5,6 +5,17 @@
 ### Also remembrt headers should not be in quote marks
 
 
+### CREATE THE FIRST USER ###
+POST http://localhost:8081/api/v1/users/genesis HTTP/1.1
+content-type: application/json
+
+{
+    "firstname": "Adam",
+    "lastname": "The First",
+    "password_clear": "inTheBeginning"
+}
+
+
 ### DISPLAY ALL USERS: ###
 
 GET http://localhost:8081/api/v1/users HTTP/1.1
@@ -12,7 +23,7 @@ Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZpcnN0
 
 ### CREATE A BOB: ###
 
-POST http://localhost:8081/api/v1/users/create HTTP/1.1
+POST http://localhost:8081/api/v1/users/ HTTP/1.1
 content-type: application/json
 
 {
@@ -40,4 +51,14 @@ content-type: application/json
 {
     "id": "1",
     "password_clear": "wrongPassword"
+}
+
+
+### DELETE A USER: ###
+### ONLY FOR TESTING ###
+DELETE http://localhost:8081/api/v1/users/ HTTP/1.1
+content-type: application/json
+
+{
+    "id": 2
 }
