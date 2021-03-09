@@ -30,23 +30,13 @@ After that `npm run start` will take care of building and starting the server.
 Run `db-migrate up` to create the following tables in your local database:
 - `orders` (plural as per spec)
 - `product` (singular as per spec) (with a rabbit called Fluffy added as an example)
-- `users` (not `user` because that is an existing Postgres table)
+- `users` (plural because `user` is an existing Postgres table)
 
 ## Manually Testing the Endpoints
 The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
 
 
-
 # INSTRUCTIONS FROM UDACITY
-
-## Required Technologies
-Your application must make use of the following libraries:
-- Postgres for the database
-- Node/Express for the application logic
-- dotenv from npm for managing environment variables
-- db-migrate from npm for migrations
-- jsonwebtoken from npm for working with JWTs
-- jasmine from npm for testing
 
 ## Steps to Completion
 
@@ -87,4 +77,3 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
-"# nd0067-c2-storefront-backend" 
