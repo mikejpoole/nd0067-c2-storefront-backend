@@ -5,7 +5,9 @@ This Node app serves the API for a pet store using Express.
 This project requires a `.env` file in the root with these variables:
     
     | Variable              | Value     |
-    | ---                   | ---       |    
+    | ---                   | ---       |
+    | APP_HOST              | localhost |
+    | APP_PORT              | 8081      |
     | PG_HOST               |           |
     | PG_DATABASE           |           |
     | PG_DATABASE_TEST      |           |
