@@ -2,6 +2,7 @@ import * as dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import express, { Request, Response } from 'express';
+import userRoutes from './handler/user';
 
 console.log('Configuring server...');
 
@@ -23,7 +24,7 @@ app.get( "/", ( req, res ) => {
 
 // Handle the routes
 // petRoutes(app);
-// userRoutes(app);
+userRoutes(app);
 
 // Start the Server
 app.listen(port, () => {

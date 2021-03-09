@@ -27,9 +27,9 @@ After that `npm run start` will take care of building and starting the server.
 
 ## Database Migrations
 Run `db-migrate up` to create the following tables in your local database:
-- orders
-- products (with a rabbit called Fluffy added as an example)
-- users
+- `orders` (plural as per spec)
+- `product` (singular as per spec) (with a rabbit called Fluffy added as an example)
+- `users` (not `user` because that is an existing Postgres table)
 
 ## Manually Testing the Endpoints
 The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
