@@ -1,7 +1,10 @@
 # Storefront Backend Project
 This Node app serves the API for a pet store using Express.
 
-# Environmental Variables
+## Installation
+Run `npm install`.
+
+## Environmental Variables
 This project requires a `.env` file in the root with these variables:
     
     | Variable              | Value     |
@@ -18,17 +21,17 @@ This project requires a `.env` file in the root with these variables:
     | BCRYPT_SALT_ROUNDS    |           |
     | ENV                   | dev       |
 
-# Build and run
+## Build and Run
 Run `npm run prebuild` the first time.
 After that `npm run start` will take care of building and starting the server.
 
-# Database Migrations
+## Database Migrations
 Run `db-migrate up` to create the following tables in your local database:
 - orders
 - products (with a rabbit called Fluffy added as an example)
 - users
 
-# Manually Testing the Endpoints
+## Manually Testing the Endpoints
 The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
 
 
