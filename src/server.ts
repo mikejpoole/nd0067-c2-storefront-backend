@@ -4,6 +4,7 @@ import cors from 'cors';
 import express, { Request, Response } from 'express';
 import userRoutes from './handler/user';
 import productRoutes from './handler/product';
+import router from './handler/routes';
 
 console.log('Configuring server...');
 
@@ -12,20 +13,9 @@ dotenv.config();
 const app: express.Application = express();
 const port = process.env.PORT || 8081;
 
+// app.use(cors({}}));              // p144
 app.use(bodyParser.json());
-
-// const corsOptions = {};       // p144
-// app.use(cors(corsOptions));
-
-app.get( "/", ( req, res ) => {
-  res.send(`<html style="background: #f5f5f5; text-align: center;">
-    <main style="padding: 20px; margin: 40px; font-size: 50px;">Welcome to the pet store API</main>
-    </html>`);
-} );
-
-// Handle the routes
-productRoutes(app);
-userRoutes(app);
+app.use(process.env.APP_PATH, router);
 
 // Start the Server
 app.listen(port, () => {

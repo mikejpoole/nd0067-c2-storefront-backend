@@ -41,11 +41,11 @@ const destroy = async (req: Request, res: Response) => {
     res.json(deleted);
 };
 
-const productRoutes = (app: express.Application) => {
-  app.get('/products', index);
-  app.get('/products/:id', show);
-  app.post('/products', verifyAuthToken, create);
-//   app.delete('/products', verifyAuthToken, destroy);
-};
+const productRouter = express.Router();
 
-export default productRoutes;
+productRouter.get('/', index);
+productRouter.get('/:id', show);
+productRouter.post('/', verifyAuthToken, create);
+//   productRouter.delete('/', verifyAuthToken, destroy);
+
+export default productRouter;

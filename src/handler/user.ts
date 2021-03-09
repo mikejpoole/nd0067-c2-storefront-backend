@@ -7,6 +7,7 @@ import { User, UserStore } from '../model/user';
 const userStore = new UserStore();
 
 const index = async (req: Request, res: Response) => {
+    console.log('Trying to get users...');
     try {
         const users = await userStore.index();
         res.json(users);
@@ -53,10 +54,9 @@ const authenticate = async (req: Request, res: Response) => {
     }
 };
 
-const userRoutes = (app: express.Application) => {
-    app.get('/users', verifyAuthToken, index);
-    app.post('/users/create', verifyAuthToken, create);
-    app.get('/users/authenticate', authenticate);
-};
+const userRouter = express.Router();
+userRouter.get('/', verifyAuthToken, index);
+userRouter.post('/create', verifyAuthToken, create);
+userRouter.get('/authenticate', authenticate);
 
-export default userRoutes;
+export default userRouter;
