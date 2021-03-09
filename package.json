@@ -1,16 +1,26 @@
 {
-  "name": "storefront_backend",
-  "version": "0.1.0",
-  "description": "",
-  "main": "server.ts",
+  "name": "nd0067-c2-storefront-backend",
+  "version": "1.0.0",
+  "description": "Creating API for course 2 in Udacity FSJS nanodegree",
+  "main": "dist/server.ts",
   "scripts": {
-    "start": "node src/server.ts",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
-    "test": "jasmine-ts",
-    "tsc": "tsc"
+    "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/server.js",
+    "migrate": "db-migrate --env test up && db-migrate up",
+    "test": "ENV=test db-migrate --env test up && jasmine-ts && db-migrate db:drop test"
   },
-  "author": "Udacity",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikejpoole/nd0067-c2-storefront-backend.git"
+  },
+  "author": "Mike Poole",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikejpoole/nd0067-c2-storefront-backend/issues"
+  },
+  "homepage": "https://github.com/mikejpoole/nd0067-c2-storefront-backend#readme",
   "dependencies": {
     "@types/express": "^4.17.9",
     "@types/pg": "^7.14.7",

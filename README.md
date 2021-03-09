@@ -1,8 +1,37 @@
 # Storefront Backend Project
+This Node app serves the API for a pet store using Express.
 
-## Getting Started
+# Environmental Variables
+This project requires a `.env` file in the root with these variables:
+    
+    | Variable              | Value     |
+    | ---                   | ---       |    
+    | PG_HOST               |           |
+    | PG_DATABASE           |           |
+    | PG_DATABASE_TEST      |           |
+    | PG_USER               |           |
+    | PG_PASSWORD           |           |
+    | BCRYPT_PASSWORD       |           |
+    | BCRYPT_PEPPER         |           |
+    | BCRYPT_SALT_ROUNDS    |           |
+    | ENV                   | dev       |
 
-This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
+# Build and run
+Run `npm run prebuild` the first time.
+After that `npm run start` will take care of building and starting the server.
+
+# Database Migrations
+Run `db-migrate up` to create the following tables in your local database:
+- orders
+- products (with a rabbit called Fluffy added as an example)
+- users
+
+# Manually Testing the Endpoints
+The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
+
+
+
+# INSTRUCTIONS FROM UDACITY
 
 ## Required Technologies
 Your application must make use of the following libraries:
