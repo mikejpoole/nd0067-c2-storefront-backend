@@ -42,7 +42,7 @@ Top tip: Keep an eye on the progress of this in [pgAdmin](http://127.0.0.1:51429
 Run `npm run test` to run the Jasmine tests.
 
 ## Manually Testing the Endpoints
-The API can be tested using Postman, although if you already use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST files (e.g. `src\model\product.rest`) are included to easily test the endpoints using the extension.
+The API can be tested using Postman, although if you already use VS Code you may prefer to use [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST files (e.g. `src\model\product.rest`) are included to easily test the endpoints using the extension.
 
 
 # TODO:
