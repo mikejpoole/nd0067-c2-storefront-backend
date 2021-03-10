@@ -7,8 +7,25 @@ services:
       - '5432:5432'
     env_file:
       - .env
+    environment:
+      - POSTGRES_USER=${PG_USER:?}
+      - POSTGRES_PASSWORD=${PG_PASSWORD:?}
+      - POSTGRES_DB=${PG_DATABASE:?}
     volumes:
       - 'postgres:/var/lib/postgresql/data'
+  postgres-test:
+    image: postgres
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_USER=${PG_USER:?}
+      - POSTGRES_PASSWORD=${PG_PASSWORD:?}
+      - POSTGRES_DB=${PG_DATABASE_TEST:?}     
+    volumes:
+      - 'postgres:/var/lib/postgresql/test-data'
 
 volumes:
   postgres:
+  postgres-test:
