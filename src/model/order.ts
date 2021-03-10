@@ -6,6 +6,13 @@ export type Order = {
   order_complete?: boolean;
 };
 
+export type OrderLine = {
+  id?: number;
+  order_id: number;
+  product_id: number;
+  quantity: number;
+};
+
 export class OrderStore {
   async index(userId: number): Promise<Order[]> {
     try {
@@ -33,15 +40,21 @@ export class OrderStore {
     }
   }
 
-  async show(userId: number): Promise<Order> {
+  async show(orderId: number): Promise<OrderLine[]> {
+    // console.log('Getting order', orderId);
     try {
-      const sql = 'SELECT * FROM orders WHERE user_id = ($1)';
+      let sql = "SELECT ol.quantity, p.name";
+      sql += " FROM orderline AS ol";
+      sql += " INNER JOIN product AS p";
+      sql += " ON ol.product_id = p.id";
+      sql += " WHERE ol.order_id = ($1)";
+
       const conn = await connection.connect();
-      const result = await conn.query(sql, [userId]);
+      const result = await conn.query(sql, [orderId]);
       conn.release();
-      return result.rows[0];
+      return result.rows;
     } catch (err) {
-      throw new Error(`Could not find orders for user ${userId}. Error: ${err}`);
+      throw new Error(`Could not find order ${orderId}. Error: ${err}`);
     }
   }
 

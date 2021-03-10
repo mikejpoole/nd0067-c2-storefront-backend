@@ -20,8 +20,9 @@ The following endpoints are in that base url:
 - Create first user = `/users/genesis` POST
 
 #### orders
-- Index Current orders for all users [token required] = `/orders/incomplete` GET
-- Show Current order for specific user (args: user id)[token required] = `/orders/incomplete/:user_id` GET
+- Index current orders for all users [token required] = `/orders/incomplete` GET
+- Index current orders for specific user [token required] = `/orders/incomplete/:user_id` GET
+- Show [token required] = `/:id` GET
 - Create = `/orders` POST
 
 

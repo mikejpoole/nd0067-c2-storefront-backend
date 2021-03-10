@@ -40,10 +40,6 @@ The API can be tested using Postman although if you use VS Code my recommendatio
 
 ## Steps to Completion
 
-### 2.  DB Creation and Migrations
-
-Now that you have the structure of the databse outlined, it is time to create the database and migrations.
-
 ### 3. Models
 
 Create the models for each database table. The methods in each model should map to the endpoints in `REQUIREMENTS.md`. Remember that these models should all have test suites and mocks.
@@ -58,6 +54,6 @@ Add JWT functionality as shown in the course. Make sure that JWTs are required f
 
 ### 6. QA and `README.md`
 
-Before submitting, make sure that your project is complete with a `README.md`. Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
+Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
 
 Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!

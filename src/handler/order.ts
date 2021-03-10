@@ -20,7 +20,6 @@ const indexUser = async (req: Request, res: Response) => {
 };
 
 const show = async (req: Request, res: Response) => {
-    const body: Order = req.body;
     const order = await orderStore.show(+req.params.id);
     res.json(order);
 };

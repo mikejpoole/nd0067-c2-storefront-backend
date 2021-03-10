@@ -5,3 +5,4 @@ CREATE TABLE "product" (
 );
 
 INSERT INTO "product" (name, price) values ('Fluffy', '17.95');
+INSERT INTO "product" (name, price) values ('Avalanche', '7.95');
