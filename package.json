@@ -8,8 +8,14 @@
     "build": "tsc",
     "prestart": "npm run build",
     "start": "node dist/server.js",
-    "migrate": "db-migrate --env test up && db-migrate up",
-    "test": "jasmine-ts"
+    
+    "db-create-test": "cross-env ENV=test db-migrate up",
+    "db-destroy-test": "cross-env ENV=test db-migrate reset",
+
+    "db-create-dev": "cross-env ENV=dev db-migrate up",
+    "db-destroy-dev": "cross-env ENV=dev db-migrate reset",
+    
+    "test": "cross-env ENV=dev jasmine-ts"
   },
   "repository": {
     "type": "git",

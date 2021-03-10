@@ -32,6 +32,9 @@ Run `db-migrate up` to create the following tables in your local database:
 - `product` (singular as per spec) (with a rabbit called Fluffy added as an example)
 - `users` (plural because `user` is an existing Postgres table)
 
+## Jasmine Tests
+Run `npm run test` to run the Jasmine tests.
+
 ## Manually Testing the Endpoints
 The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
 

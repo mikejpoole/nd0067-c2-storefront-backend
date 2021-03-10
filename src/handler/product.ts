@@ -34,10 +34,10 @@ const create = async (req: Request, res: Response) => {
     }
 };
 
-const destroy = async (req: Request, res: Response) => {
-    const deleted = await productStore.delete(+req.params.id);
-    res.json(deleted);
-};
+// const destroy = async (req: Request, res: Response) => {
+//     const deleted = await productStore.delete(+req.params.id);
+//     res.json(deleted);
+// };
 
 const productRouter = express.Router();
 

@@ -44,16 +44,16 @@ export class ProductStore {
     }
   }
 
-  async delete(id: number): Promise<Product> {
-    try {
-      const sql = 'DELETE FROM product WHERE id = ($1)';
-      const conn = await connection.connect();
-      const result = await conn.query(sql, [id]);
-      const product = result.rows[0];
-      conn.release();
-      return product;
-    } catch (err) {
-      throw new Error(`Could not delete product ${id}. Error: ${err}`);
-    }
-  }
+  // async delete(id: number): Promise<Product> {
+  //   try {
+  //     const sql = 'DELETE FROM product WHERE id = ($1)';
+  //     const conn = await connection.connect();
+  //     const result = await conn.query(sql, [id]);
+  //     const product = result.rows[0];
+  //     conn.release();
+  //     return product;
+  //   } catch (err) {
+  //     throw new Error(`Could not delete product ${id}. Error: ${err}`);
+  //   }
+  // }
 }

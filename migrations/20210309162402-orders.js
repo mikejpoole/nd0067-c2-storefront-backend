@@ -34,6 +34,8 @@ exports.up = function(db) {
 };
 
 exports.down = function(db) {
+  // return db.dropTable('orders');
+
   var filePath = path.join(__dirname, 'sqls', '20210309162402-orders-down.sql');
   return new Promise( function( resolve, reject ) {
     fs.readFile(filePath, {encoding: 'utf-8'}, function(err,data){
