@@ -35,7 +35,8 @@ Run `db-migrate up` to create the following tables in your local database:
 - `product` (singular as per spec) (with a rabbit called Fluffy added as an example)
 - `users` (plural because `user` is an existing Postgres table)
 - `orderline`
-Top tip: Keep an eye on the progress of this in [pgAdmin](http://localhost:51429/browser/).
+
+Top tip: Keep an eye on the progress of this in [pgAdmin](http://127.0.0.1:51429/browser/).
 
 ## Jasmine Tests
 Run `npm run test` to run the Jasmine tests.
@@ -44,24 +45,9 @@ Run `npm run test` to run the Jasmine tests.
 The API can be tested using Postman although if you use VS Code my recommendation is [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). Rest files (e.g. `src\model\product.rest`) are included to test the endpoints using this extension.
 
 
-# INSTRUCTIONS FROM UDACITY
-
-## Steps to Completion
-
-### 3. Models
-
-Create the models for each database table. The methods in each model should map to the endpoints in `REQUIREMENTS.md`. Remember that these models should all have test suites and mocks.
-
-### 4. Express Handlers
-
-Set up the Express handlers to route incoming requests to the correct model method. Make sure that the endpoints you create match up with the enpoints listed in `REQUIREMENTS.md`. Endpoints must have tests and be CORS enabled. 
-
-### 5. JWTs
-
-Add JWT functionality as shown in the course. Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
-
-### 6. QA and `README.md`
-
-Your `README.md` must include instructions for setting up and running your project including how you setup, run, and connect to your database. 
-
-Before submitting your project, spin it up and test each endpoint. If each one responds with data that matches the data shapes from the `REQUIREMENTS.md`, it is ready for submission!
+# TODO:
+- Add tests and mocks for all models.
+- Endpoints must have tests and be CORS enabled. 
+- Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
+- `README.md` must include instructions for how you setup, run, and connect to your database. 
+- Before submitting your project, spin it up and test each endpoint to make sure they match requirements.
