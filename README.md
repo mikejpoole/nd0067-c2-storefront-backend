@@ -1,5 +1,5 @@
 # Storefront Backend Project
-This Node app serves the API for a pet store using Express.
+This Node app serves an [API for a pet store](http://localhost:8081/api/v1) using Express.
 
 ## Installation
 Run `npm install`.
@@ -30,7 +30,7 @@ After that `npm run start` will take care of building and starting the server.
 Create your dev and test Postgres databases locally and specify their host, database names and credentials in the `.env` file.
 
 ## Database Migrations
-Run `npm run create-test-db` and `npm run create-dev-db` to a test and a dev database with the following tables in them:
+Run `npm run create-test-db` and `npm run create-dev-db` to create a test and a dev database each with the following tables:
 - `orders` (plural as per spec)
 - `product` (singular as per spec) (with a rabbit called Fluffy added as an example)
 - `users` (plural because `user` is an existing Postgres table)
@@ -47,7 +47,6 @@ The API can be tested using Postman, although if you already use VS Code my reco
 
 # TODO:
 - Add tests and mocks for all models.
-- Endpoints must have tests and be CORS enabled. 
+- Endpoints must have tests and be CORS enabled.
 - Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
-- `README.md` must include instructions for how you setup, run, and connect to your database. 
-- Before submitting your project, spin it up and test each endpoint to make sure they match requirements.
+- Before submitting project, spin it up and test each endpoint to make sure they match requirements.
