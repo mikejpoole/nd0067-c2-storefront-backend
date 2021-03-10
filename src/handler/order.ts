@@ -8,29 +8,44 @@ dotenv.config();
 
 const orderStore = new OrderStore();
 
-const show = async (req: Request, res: Response) => {
-    const body: Order = req.body;
-    const product = await orderStore.show(body.id);
-    res.json(product);
+const index = async (req: Request, res: Response) => {
+    const orders = await orderStore.index(-1);
+    res.json(orders);
 };
 
-// const create = async (req: Request, res: Response) => {
-//     const body: Order = req.body;
-//     try {
-//         const product: Order = {
-//             user_id: body.user_id,
-//         };
+const indexUser = async (req: Request, res: Response) => {
+    console.log(req.params);
+    const orders = await orderStore.index(+req.params.user_id);
+    res.json(orders);
+};
 
-//         const newproduct = await orderStore.create(product);
-//         res.json(newproduct);
-//     } catch(err) {
-//         res.status(400);
-//         res.json(err);
-//     }
-// };
+const show = async (req: Request, res: Response) => {
+    const body: Order = req.body;
+    const order = await orderStore.show(+req.params.id);
+    res.json(order);
+};
+
+const create = async (req: Request, res: Response) => {
+    const body: Order = req.body;
+    try {
+        const order: Order = {
+            user_id: body.user_id
+        };
+
+        const neworder = await orderStore.create(order);
+        res.json(neworder);
+    } catch(err) {
+        res.status(400);
+        res.json(err);
+    }
+};
 
 const orderRouter = express.Router();
 
+orderRouter.get('/incomplete', index);
+orderRouter.get('/incomplete/:user_id', indexUser);
+
 orderRouter.get('/:id', show);
+orderRouter.post('/', create);
 
 export default orderRouter;

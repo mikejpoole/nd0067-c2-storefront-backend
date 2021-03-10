@@ -14,8 +14,7 @@ const index = async (req: Request, res: Response) => {
 };
 
 const show = async (req: Request, res: Response) => {
-    const body: Product = req.body;
-    const product = await productStore.show(body.id);
+    const product = await productStore.show(+req.params.id);
     res.json(product);
 };
 
@@ -36,8 +35,7 @@ const create = async (req: Request, res: Response) => {
 };
 
 const destroy = async (req: Request, res: Response) => {
-    const body: Product = req.body;
-    const deleted = await productStore.delete(body.id);
+    const deleted = await productStore.delete(+req.params.id);
     res.json(deleted);
 };
 
@@ -46,6 +44,6 @@ const productRouter = express.Router();
 productRouter.get('/', index);
 productRouter.get('/:id', show);
 productRouter.post('/', verifyAuthToken, create);
-//   productRouter.delete('/:id', verifyAuthToken, destroy);         // DO NOT INCLUDE THIS IN PRODUCTION!!!
+// productRouter.delete('/:id', verifyAuthToken, destroy);         // DO NOT INCLUDE THIS IN PRODUCTION!!!
 
 export default productRouter;
