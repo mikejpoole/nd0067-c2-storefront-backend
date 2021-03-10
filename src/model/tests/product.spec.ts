@@ -1,4 +1,5 @@
-import { ProductStore } from './product';
+import { ProductStore } from '../product';
+import { validProduct } from '../mocks/product';
 
 const productStore = new ProductStore();
 
@@ -25,32 +26,20 @@ describe("product Model", () => {
 
   it('create method should add a product', async () => {
     const result = await productStore.create({
-      name: 'Fluffy',
-      price: 20.95
+      name: validProduct.name,
+      price: validProduct.price
     });
-    expect(result).toEqual({
-      id: 1,
-      name: 'Fluffy',
-      price: 20.95
-    });
+    expect(result).toEqual(validProduct);
   });
 
   it('index method should return a list of products', async () => {
     const result = await productStore.index();
-    expect(result).toEqual([{
-      id: 1,
-      name: 'Fluffy',
-      price: 20.95
-    }]);
+    expect(result).toEqual([validProduct]);
   });
 
   it('show method should return the correct product', async () => {
     const result = await productStore.show(1);
-    expect(result).toEqual({
-      id: 1,
-      name: 'Fluffy',
-      price: 20.95
-    });
+    expect(result).toEqual(validProduct);
   });
 
   it('delete method should remove the product', async () => {
