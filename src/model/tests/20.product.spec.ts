@@ -9,20 +9,20 @@ describe("product Model", () => {
   });
 
   it('should have a show method', () => {
-    expect(productStore.index).toBeDefined();
+    expect(productStore.show).toBeDefined();
   });
 
   it('should have a create method', () => {
-    expect(productStore.index).toBeDefined();
+    expect(productStore.create).toBeDefined();
   });
 
-  it('should have a update method', () => {
-    expect(productStore.index).toBeDefined();
-  });
-
-  // it('should have a delete method', () => {
-  //   expect(productStore.index).toBeDefined();
+  // it('should have a update method', () => {
+  //   expect(productStore.update).toBeDefined();
   // });
+
+  it('should have a delete method', () => {
+    expect(productStore.delete).toBeDefined();
+  });
 
   it('create method should add a product', async () => {
     const result = await productStore.create({
@@ -46,7 +46,6 @@ describe("product Model", () => {
   // it('delete method should remove the product', async () => {
   //   productStore.delete(1);
   //   const result = await productStore.index();
-
-  //   expect(result).toEqual([]);
+  //   expect(result).toEqual(undefined);
   // });
 });
