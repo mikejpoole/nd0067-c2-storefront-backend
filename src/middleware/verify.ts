@@ -9,7 +9,6 @@ export const verifyAuthToken = (req: Request, res: Response, next: any) => {
 
         if (authHeader) {
             const authToken = authHeader.split(' ')[1];             // Ignores Bearer in the header
-            // TODO: THIS IS FAILING TO WORK WITH A VALID TOKEN
             jwt.verify(authToken,
                 process.env.AUTHTOKEN_SECRET,
                 (err, verifiedJwt) => {
@@ -18,7 +17,7 @@ export const verifyAuthToken = (req: Request, res: Response, next: any) => {
                         res.status(401);
                         res.send(err.message);
                     }else{
-                        console.log('Verified JWT', verifiedJwt);
+                        // console.log('Verified JWT', verifiedJwt);
                         next();
                     }
                 });

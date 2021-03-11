@@ -41,10 +41,10 @@ const create = async (req: Request, res: Response) => {
 
 const orderRouter = express.Router();
 
-orderRouter.get('/incomplete', index);
-orderRouter.get('/incomplete/:user_id', indexUser);
+orderRouter.get('/incomplete', verifyAuthToken, index);
+orderRouter.get('/incomplete/:user_id', verifyAuthToken, indexUser);
 
-orderRouter.get('/:id', show);
-orderRouter.post('/', create);
+orderRouter.get('/:id', verifyAuthToken, show);
+orderRouter.post('/', verifyAuthToken, create);
 
 export default orderRouter;

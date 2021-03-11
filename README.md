@@ -43,9 +43,3 @@ Run `npm run test` to run the Jasmine tests.
 
 ## Manually Testing the Endpoints
 The API can be tested using Postman, although if you already use VS Code you may prefer to use [humao.rest-client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client). REST files (e.g. `src\model\product.rest`) are included to easily test the endpoints using the extension.
-
-
-# TODO:
-- Endpoints must be CORS enabled.
-- Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
-- Before submitting project, spin it up and test each endpoint to make sure they match requirements.

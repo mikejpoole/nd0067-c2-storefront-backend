@@ -1,10 +1,12 @@
+### GET PRODUCTS ###
+
 GET http://localhost:8081/api/v1/products HTTP/1.1
 
-### DISPLAY FLUFFY: ###
+### DISPLAY PRODUCT: ###
 
 GET http://localhost:8081/api/v1/products/1 HTTP/1.1
 
-### CREATE PRODUCT (NO AUTHHEADER): ###
+### CREATE PRODUCT (NO AUTHHEADER SO SHOULD FAIL): ###
 
 POST http://localhost:8081/api/v1/products HTTP/1.1
 content-type: application/json
@@ -14,7 +16,7 @@ content-type: application/json
     "price": 7.95
 }
 
-### CREATE PRODUCT (AUTHHEADER SUPPLIED): ###
+### CREATE PRODUCT (AUTHHEADER SUPPLIED SO SHOULD PASS): ###
 
 POST http://localhost:8081/api/v1/products HTTP/1.1
 Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7InVzZXJuYW1lIjoiQm9iIiwicGFzc3dvcmRfaGFzaCI6IiQyYSQxMCRJaVFkNHk1Z2JPNEluZWRQRjJhck1lcGRWOElSQkhQeFgvTHBMc3U3YTh2NWM1N2NpdG0zYSJ9LCJpYXQiOjE2MTUyMDk0MzN9.8F_UqgE3S0ejsFma_5PuBtQX8EtZTlNrhug7CjMQJOI
@@ -30,9 +32,10 @@ PUT http://localhost:8081/api/v1/products/1 HTTP/1.1
 content-type: application/json
 
 {
-    "name": "Nutmeg"
+    "name": "Nutmeg",
+    "price": 8.95
 }
 
-### DELETE product: ###
+### DELETE product (SHOULD NOT WORK BECAUSE DON'T WANT THIS EXPOSED): ###
 
 DELETE http://localhost:8081/api/v1/products/3 HTTP/1.1

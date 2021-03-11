@@ -69,10 +69,11 @@ export class UserStore {
                 const correctPassword: boolean = bcrypt.compareSync(passwordClearWithPepper, user.password);
 
                 if (correctPassword) {
-                    console.log('Password is correct');
+                    // console.log('Password is correct');
                     return user;
                 } else {
-                    console.log(`Credentials for ${user.firstname} do not match.`);
+                    // console.log(`Credentials for ${user.firstname} do not match.`);
+                    return null;
                 }
             } catch (err) {
                 throw new Error(`Unable to authenticate user (${creds.firstname}): ${err}`);

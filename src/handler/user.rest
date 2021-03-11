@@ -24,6 +24,7 @@ Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZpcnN0
 ### CREATE A BOB: ###
 
 POST http://localhost:8081/api/v1/users/ HTTP/1.1
+Authorization: Bearer: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImZpcnN0bmFtZSI6IkJvYmJpbmd0b24iLCJwYXNzd29yZCI6IiQyYSQxMCRLOUZxcG95dVBZU2RaMmpOMFg3a2guS2M3djhBdmovdTlJakYydnJxMzl3RGZsa2RPTE1QMiJ9LCJpYXQiOjE2MTUyOTEzODR9.IyGadxDBHnWsg2Cnv_3-yGFQP1ICs2nLRRna5Tjnj3w
 content-type: application/json
 
 {
