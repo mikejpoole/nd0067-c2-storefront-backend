@@ -6,6 +6,7 @@
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json --fix",
     "build": "tsc",
+  
     "prestart": "npm run build",
     "start": "node dist/server.js",
 
@@ -14,7 +15,8 @@
     "create-dev-db": "cross-env ENV=dev db-migrate up",
     "destroy-dev-db": "cross-env ENV=dev db-migrate reset",
 
-    "test": "cross-env ENV=dev jasmine-ts"
+    "pretest": "npm run destroy-test-db && npm run create-test-db",
+    "test": "npm run pretest && cross-env ENV=dev jasmine-ts"
   },
   "repository": {
     "type": "git",

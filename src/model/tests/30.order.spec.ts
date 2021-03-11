@@ -1,5 +1,5 @@
-import { OrderStore } from '../order';
-import { validOrder, validOrderWithId, validOrderLine, validOrderLineWithId } from '../mocks/order';
+import { Order, OrderLine, OrderStore } from '../order';
+import { validOrder, validOrderWithId, validOrderLine, validOrderLineWithEverything } from '../mocks/order';
 
 const orderStore = new OrderStore();
 
@@ -16,10 +16,9 @@ describe("Order Model", () => {
   // This test will fail if the user was given an id of other than 1 (i.e. subsequent tests)
   it('create method should add a order', async () => {
     const result = await orderStore.create({
-      user_id: validOrder.user_id,
-      order_complete: validOrder.order_complete
+      user_id: validOrder.user_id
     });
-    expect(result.user_id).toEqual(validOrder.user_id);
+    expect(result).toEqual(validOrderWithId);
   });
 
 
@@ -40,16 +39,12 @@ describe("Order Model", () => {
   });
 
   it('createLine method should add a line', async () => {
-    const result = await orderStore.createLine({
-      order_id: validOrderLine.order_id,
-      product_id: validOrderLine.product_id,
-      quantity: validOrderLine.quantity
-    });
-    expect(result.user_id).toEqual(validOrderLine.order_id);
+    const result:OrderLine = await orderStore.createLine(validOrderLine);
+    expect(result.order_id).toEqual(validOrderLine.order_id);
   });
 
   it('show method should return the correct order', async () => {
     const result = await orderStore.show(1);
-    expect(result[0]).toEqual(validOrderLineWithId);
+    expect(result[0].name).toEqual(validOrderLineWithEverything.name);
   });
 });

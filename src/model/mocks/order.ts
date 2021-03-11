@@ -13,10 +13,11 @@ export const validOrder: Order = {
 
 
 // Order Lines
-export const validOrderLineWithId: OrderLine = {
+export const validOrderLineWithEverything: OrderLine = {
     id: 1,
     order_id: 1,
     product_id: 1,
+    name: 'Big Can of Stuff',
     quantity: 5
 };
 
@@ -25,4 +26,3 @@ export const validOrderLine: OrderLine = {
     product_id: 1,
     quantity: 5
 };
-

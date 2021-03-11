@@ -10,6 +10,7 @@ export type OrderLine = {
   id?: number;
   order_id: number;
   product_id: number;
+  name?: string;
   quantity: number;
 };
 
@@ -28,7 +29,7 @@ export class OrderStore {
         result = await conn.query(sql);
       } else {
         // Open orders for a specific user
-        console.log('Getting orders for user', userId);
+        // console.log('Getting orders for user', userId);
         sql += " AND user_id = ($1)";
         result = await conn.query(sql, [userId]);
       }
@@ -63,7 +64,7 @@ export class OrderStore {
       const sql = 'INSERT INTO orders (user_id) VALUES ($1) RETURNING *';
       const conn = await connection.connect();
       const result = await conn.query(sql, [o.user_id]);
-      const order = result.rows[0];
+      const order: Order = result.rows[0];
       conn.release();
       return order;
     } catch (err) {
@@ -72,7 +73,7 @@ export class OrderStore {
   }
 
   // Order Lines
-  async createLine(line: OrderLine): Promise<Order> {
+  async createLine(line: OrderLine): Promise<OrderLine> {
     try {
       const sql = 'INSERT INTO orderline (order_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING *';
       const conn = await connection.connect();

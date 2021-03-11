@@ -46,7 +46,6 @@ The API can be tested using Postman, although if you already use VS Code you may
 
 
 # TODO:
-- Add tests and mocks for all models.
-- Endpoints must have tests and be CORS enabled.
+- Endpoints must be CORS enabled.
 - Make sure that JWTs are required for the routes listed in `REQUIUREMENTS.md`.
 - Before submitting project, spin it up and test each endpoint to make sure they match requirements.
