@@ -1,7 +1,7 @@
 CREATE TABLE "orderline" (
-    id BIGSERIAL NOT NULL PRIMARY KEY,
-    order_id BIGINT REFERENCES orders(id),
-    product_id BIGINT REFERENCES product(id),
+    id SERIAL NOT NULL PRIMARY KEY,
+    order_id INT REFERENCES orders(id),
+    product_id INT REFERENCES product(id),
     quantity INTEGER
 );
 

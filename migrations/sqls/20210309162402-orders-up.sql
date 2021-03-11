@@ -1,5 +1,5 @@
 CREATE TABLE "orders" (
-    id BIGSERIAL NOT NULL PRIMARY KEY,
-    user_id BIGINT REFERENCES users(id),
+    id SERIAL NOT NULL PRIMARY KEY,
+    user_id INT REFERENCES users(id),
     order_complete BOOLEAN
 );
