@@ -71,4 +71,18 @@ export class OrderStore {
     }
   }
 
+  // Order Lines
+  async createLine(line: OrderLine): Promise<Order> {
+    try {
+      const sql = 'INSERT INTO orderline (order_id, product_id, quantity) VALUES ($1, $2, $3) RETURNING *';
+      const conn = await connection.connect();
+      const result = await conn.query(sql, [line.order_id, line.product_id, line.quantity]);
+      const order = result.rows[0];
+      conn.release();
+      return order;
+    } catch (err) {
+      throw new Error(`Could not add new line for order ${line.order_id}. Error: ${err}`);
+    }
+  }
+
 }
